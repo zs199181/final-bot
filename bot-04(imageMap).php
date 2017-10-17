@@ -7,7 +7,7 @@ $access_token  = 'EHGZnJh9TWJUMsFAop/DyUlwV0CXWzXCaYN58PRJ9aqaUOAGgeCSgJ7GAPm855
 
 $bot = new BOT_API($channelSecret, $access_token);
 	
-// if (!empty($bot->isEvents)) {
+if (!empty($bot->isEvents)) {
 	// $input = $bot->message->text;
 	// echo $input;
 	$input = 'image';
@@ -17,9 +17,9 @@ $bot = new BOT_API($channelSecret, $access_token);
 		$bot->replyImagemapMessage($bot->replyToken);
 		var_dump($bot);
 	}
-
+	// echo "jean";
     // Failed
-//     echo $bot->response->getHTTPStatus . ' ' . $bot->response->getRawBody(); 
-//     exit();
+    echo $bot->response->getHTTPStatus . ' ' . $bot->response->getRawBody(); 
+    exit();
 
-// }
+}
