@@ -23,3 +23,6 @@ if (!empty($bot->isEvents)) {
     exit();
 
 }
+else {
+	echo 'bot event is empty';
+}
