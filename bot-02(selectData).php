@@ -2,9 +2,8 @@
 
 include ('line-bot.php');
 
-$channelSecret = '	
-4c6b31ffceb1b59b3c93ac27345062f8';
-$access_token  = '1fv4VHaVDl8Me9nQlLF3UUbLjPOdiR/G405XuGQ5qtqxlX4e3ka8r6v6N2Q6Qm693qnMwLv/2dQdNRiJ6vCGMc2ea6is/Lofj2vvB/OwYgN81xpbRwr0FIVE6fsuGxriuO3nFP1HefTB5Xo65XiiUAdB04t89/1O/w1cDnyilFU=';
+$channelSecret = '0d39897911dcf7e20f94e714c59d3fc3';
+$access_token  = 'EHGZnJh9TWJUMsFAop/DyUlwV0CXWzXCaYN58PRJ9aqaUOAGgeCSgJ7GAPm855/j8SOmPr/TP8hD2VpRXd+3dNIbBL+GFN7AW0C3jH0A3NtreLFu0fIdNq8FqHZiQTK/SWVRkEfoIQ62t0/nu7FH3AdB04t89/1O/w1cDnyilFU=';
 
 $bot = new BOT_API($channelSecret, $access_token);
 
@@ -17,9 +16,8 @@ $bot->replyMessageNew($bot->replyToken, "111");
 	$rest = substr($input, 1);
 $bot->replyMessageNew($bot->replyToken, $rest);
 	if($mode == '1') {
-		//$sql = "SELECT tel FROM user Where name ='".$rest."'";
-		$sql = "SELECT Name  FROM engineer Where EngineerID ='".$rest."'";
-$bot->replyMessageNew($bot->replyToken, $sql);
+		$sql = "SELECT tel FROM user Where name ='".$rest."'";
+		$bot->replyMessageNew($bot->replyToken, $sql);
 		$result = mysqli_query($cn,$sql);
 		while($row = mysqli_fetch_array($result)) {
 			// echo $row['tel'];
