@@ -8,8 +8,9 @@ $access_token  = 'HatdNCqxGq+BiYUUAxXYbz8Bjlx1Mx1O8tHLxim2y2cF2BuWxGxt6fIIfnudfQ
 $bot = new BOT_API($channelSecret, $access_token);
 	
 if (!empty($bot->isEvents)) {
-		
-    $bot->replyMessageNew($bot->replyToken, json_encode($bot->message));
+	
+    // $bot->replyMessageNew($bot->replyToken, json_encode($bot->message));
+    $bot->replyMessageNew($bot->replyToken, $bot->message->type);
 
     if ($bot->isSuccess()) {
         echo 'Succeeded!';
@@ -20,4 +21,8 @@ if (!empty($bot->isEvents)) {
     echo $bot->response->getHTTPStatus . ' ' . $bot->response->getRawBody(); 
     exit();
 
+}
+else{
+    // echo 'Connect Succeeded!';
+    include ('verify.php');
 }

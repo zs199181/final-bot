@@ -9,17 +9,13 @@ $access_token  = '1fv4VHaVDl8Me9nQlLF3UUbLjPOdiR/G405XuGQ5qtqxlX4e3ka8r6v6N2Q6Qm
 $bot = new BOT_API($channelSecret, $access_token);
 
 if (!empty($bot->isEvents)) {
-$bot->replyMessageNew($bot->replyToken, "111");
 
 	include('connect.php');
 	$input = $bot->message->text;
 	$mode = $input[0];
 	$rest = substr($input, 1);
-$bot->replyMessageNew($bot->replyToken, $rest);
 	if($mode == '1') {
-		//$sql = "SELECT tel FROM user Where name ='".$rest."'";
-		$sql = "SELECT Name  FROM engineer Where EngineerID ='".$rest."'";
-$bot->replyMessageNew($bot->replyToken, $sql);
+		$sql = "SELECT tel FROM user Where name ='".$rest."'";
 		$result = mysqli_query($cn,$sql);
 		while($row = mysqli_fetch_array($result)) {
 			// echo $row['tel'];

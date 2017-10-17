@@ -7,6 +7,8 @@ use \LINE\LINEBot\HTTPClient;
 use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot\MessageBuilder;
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
 
 class BOT_API extends LINEBot {
 	
@@ -84,7 +86,6 @@ class BOT_API extends LINEBot {
         $messageBuilder = new TextMessageBuilder($message);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
             'to' => $to,
-            // 'toChannel' => 'Channel ID,
             'messages'  => $messageBuilder->buildMessage()
         ]);
     }
@@ -114,6 +115,31 @@ class BOT_API extends LINEBot {
 
         return json_decode($result);
 		
+    }
+
+    // public function replyImagemapMessage($replyToken = null) {
+    //     $baseImage = 'image/bg.jpg';
+    //     $altText = 'ช่าง';
+    //     $baseSize = ['150', '250'];
+    //     $area = ['0', '0', '520', '1040'];
+    //     $linkUri = ['https://www.google.co.th/', $area];
+    //     $text = ['intext', $area];
+    //     $act = [$linkUri, $text];
+    //     $messageBuilder = new ImagemapMessageBuilder($baseImage, $altText, $baseSize, $linkUri);
+    //     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+    //         'replyToken' => $replyToken,
+    //         'messages'   => $messageBuilder->buildMessage(),
+
+    //     ]);
+    // }
+
+    public function replyImageMessage ($replyToken = null) {
+        $url = 'https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363';
+        $messageBuilder = new ImageMessageBuilder($url, $url);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages' => $messageBuilder->buildMessage(),
+        ]);
     }
 	
 }
