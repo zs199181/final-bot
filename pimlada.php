@@ -7,8 +7,8 @@ use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
 use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
 use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
 
-$channelSecret = '12de6a97812901e6fee0a0bbab685eee';
-$access_token  = 'HatdNCqxGq+BiYUUAxXYbz8Bjlx1Mx1O8tHLxim2y2cF2BuWxGxt6fIIfnudfQrdleHDBLSZtK6Ukjpt+dF6N1VcBv9PDUTuxJPCEhFCBULVTiyvv5TwTkBwzSBHUraOAcMmIMIi56OqrMsVIhra5gdB04t89/1O/w1cDnyilFU=';
+$channelSecret = 'xxxxxxxxxx';
+$access_token  = 'xxxxxxxxxxxxxxx';
 
 $bot = new BOT_API($channelSecret, $access_token);
 	
